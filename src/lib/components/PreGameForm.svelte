@@ -3,6 +3,7 @@
   import {supabase} from '../supabaseClient'
 
   const dispatch = createEventDispatcher();
+
   let preGameFormData = {
     game_date: '',
     game_opponent: '',
@@ -13,32 +14,25 @@
     pre_mentally_prep: ''
   }
 
-  // local storage handling
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   localStorage.setItem('formData', JSON.stringify(preGameFormData))
-  //   dispatch('preGameFormSubmitted')
-  // }
-
   // supabase handling of form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const {data, error} = await supabase.from('game-log-data').insert([preGameFormData])
+      const {data, error} = await supabase.from('pre-game-log-data').insert([preGameFormData])
       if (error) {
         console.error(error)
       } else {
-        console.log('Pre Game Form data submitted successfully', data)
         dispatch('preGameFormSubmitted')
+        console.log('Pre Game Form data submitted successfully', data)
       }
     } catch (error) {
       console.error('error in submitting pregame form', error)
     }
   }
-</script>
 
-<h2>Pre-Game Log</h2>
-<form on:submit={handleSubmit}>
+</script>
+<h2 class="text-2xl text-white font-bold">Pre-Game Log</h2>
+<form on:submit|preventDefault={handleSubmit} class="my-8 flex flex-col">
     <label for="date">
       Date:
       <input type="date" name="date" id="date" bind:value={preGameFormData.game_date}>
@@ -86,7 +80,15 @@
       NO
     </label>
 
-    <button type="submit">
-      Submit
-    </button>
+      <button type="submit" class="text-black bg-white py-4 rounded w-48">
+        Submit
+      </button>
 </form>
+
+
+<style lang="postcss">
+  label {
+    @apply my-4;
+    color: #e51736;
+  }
+</style>

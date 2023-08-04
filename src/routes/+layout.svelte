@@ -1,5 +1,5 @@
-<!-- src/routes/+layout.svelte -->
 <script lang="ts">
+  import '../app.css'
   import { invalidate } from '$app/navigation'
   import { onMount } from 'svelte'
 
@@ -21,4 +21,6 @@
   });
 </script>
 
-<slot />
+<main class="bg-black text-white">
+  <slot />
+</main>

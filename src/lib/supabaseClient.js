@@ -6,17 +6,17 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 export const supabase = createClient(`${ supabaseUrl }`, `${ supabaseKey }`)
 
-async function testSupabaseQuery() {
-  try {
-    const { data, error } = await supabase.from('game-log-data').select('*');
-    if (error) {
-      console.error('Query Error:', error);
-    } else {
-      console.log('Form Data:', data);
-    }
-  } catch (error) {
-    console.error('Query Error:', error);
-  }
-}
+// async function testSupabaseQuery() {
+//   try {
+//     const { data, error } = await supabase.from('game-log-data').select('*');
+//     if (error) {
+//       console.error('Query Error:', error);
+//     } else {
+//       console.log('Form Data:', data);
+//     }
+//   } catch (error) {
+//     console.error('Query Error:', error);
+//   }
+// }
 
-testSupabaseQuery();
+// testSupabaseQuery();

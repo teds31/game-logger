@@ -1,16 +1,11 @@
 <script>
   import PreGameForm from '$lib/components/PreGameForm.svelte'
-//   import PreGameSubmission from '$lib/components/PreGameSubmission.svelte'
-
-  let formSubmitted = false
 </script>
 
-{#if !formSubmitted}
-   <PreGameForm on:formSubmitted={() => {formSubmitted = true}} />
-{:else}
-   <!-- <PreGameSubmission /> -->
-   there will be data here
-{/if}
+<main class="h-full px-6 py-8">
 
-<a href="/">Return to Dashboard</a>
+  <PreGameForm />
+  <a href="/" class="rounded border border-white py-4 px-6 text-white my-8">Back to Dashboard</a>
+</main>
+
 
