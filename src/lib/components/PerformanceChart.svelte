@@ -59,8 +59,6 @@
           }
         ]
       }
-      console.log('dates', dateArr)
-      console.log('performance', performanceArr)
     }
 
 </script>
